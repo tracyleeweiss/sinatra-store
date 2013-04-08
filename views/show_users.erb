@@ -1,0 +1,15 @@
+<table>
+	<h1>Users</h1>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+  </tr>
+  <% @rs.each do |row| %>
+  <tr>
+    <td><%= row['id'] %></td>
+    <td><%= row['name'] %></td>
+  </tr>
+  <% end %>
+</table>
+
+<a class = "back" href="/">Back</a></li>

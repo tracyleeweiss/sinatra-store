@@ -1,0 +1,32 @@
+<h1>Are you sure you want to Destroy Product?</h1>
+<form action='/products/<%= @id %>/destroy' method='post'>
+
+	<p>
+	<label for='product_name'>Product Name</label>
+	<input type='text' name='product_name' value="<%= @row['name'] %>"/>
+    </p>
+
+
+    <p>
+	<label for='product_price'>Product Price</label>
+	<input type='text' name='product_price' value="<%= @row['price'] %>"/>
+	
+    </p>
+
+    <p>
+
+	<label for='on_sale'>On Sale</label>
+	<input type= 'checkbox' name='on_sale'/>
+    </p>
+
+    <p>
+    <button>Destroy it!</button>
+    </p>
+</form>
+<a href="/products">
+		Products page
+	</a>
+<p>
+	<a href="/">
+		Go Home
+	</a>

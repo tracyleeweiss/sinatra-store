@@ -1,0 +1,61 @@
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Product Name</th>
+    <th>Price</th>
+    <th>On Sale</th>
+    <th>Search Twitter</th>
+
+  </tr>
+ <!--  #creates new row -->
+  <% @rs.each do |row| %>
+  <tr>
+	  	<td>
+	      <%= row['id'] %>
+	  	</td>
+
+	    <td>
+	        <a href='/products/<%= row['id'] %>'>
+	    		<%= row['name'] %>
+	    	</a>
+	    </td>
+	    	
+	    <td>
+	    	<%= row['price'] %>
+	    </td>
+	   
+	   <td class="align-center"><% if row['on_sale'] == 't' %>
+	          <img src="/on_sale_big.png" width="20px" height="20px">
+	        <% end %>
+	   </td>
+	       <td>
+	        <a href='/products/<%= row['id'] %>/edit'>Edit
+	       </a>
+	    	|
+	    	<a href='/products/<%= row['id'] %>/destroy'>Delete
+	    	</a>
+	      </td>
+	       <td>
+              <a href="/products/search?q=<%= URI.escape(row['name']) %>">
+		        Search on Twitter
+		      </a>
+
+		   </td>
+		   <td>
+              <a href="/products/search_google?q=<%= URI.escape(row['name']) %>">
+		        Search google products
+		      </a>
+		  </td>
+
+	    
+  </tr>
+<!-- ends the creating of new row -->
+  <% end %>
+
+</table>
+
+<a href="/">
+		Home page
+	</a>
+
